@@ -40,7 +40,24 @@ final cartRepositoryProvider = AutoDisposeProvider<CartRepository>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef CartRepositoryRef = AutoDisposeProviderRef<CartRepository>;
-String _$cartTotalHash() => r'7270b0e49fcf866e9a223f57799c372f1dd99757';
+String _$allIngredientsHash() => r'33431ac37112e444a550cab0b79d4f2794bfc327';
+
+/// See also [allIngredients].
+@ProviderFor(allIngredients)
+final allIngredientsProvider = AutoDisposeFutureProvider<List<String>>.internal(
+  allIngredients,
+  name: r'allIngredientsProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$allIngredientsHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef AllIngredientsRef = AutoDisposeFutureProviderRef<List<String>>;
+String _$cartTotalHash() => r'f8519c30bd5039195dce8ed1167a0e93735edbfd';
 
 /// See also [cartTotal].
 @ProviderFor(cartTotal)
@@ -57,7 +74,7 @@ final cartTotalProvider = AutoDisposeFutureProvider<double>.internal(
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef CartTotalRef = AutoDisposeFutureProviderRef<double>;
-String _$cartItemCountHash() => r'63a590c26e959fb32ea3664cc52faec02ae3046f';
+String _$cartItemCountHash() => r'b61a0299ab934bbaaa9ab4669901ce9fd48715ae';
 
 /// See also [cartItemCount].
 @ProviderFor(cartItemCount)

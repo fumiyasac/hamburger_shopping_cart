@@ -35,7 +35,14 @@ class BurgerList extends _$BurgerList {
   }
 }
 
-// Search Provider
+// All Ingredients Provider
+@riverpod
+Future<List<String>> allIngredients(AllIngredientsRef ref) async {
+  final repository = ref.watch(burgerRepositoryProvider);
+  return repository.getAllIngredients();
+}
+
+// Search Provider (単一パラメータ版)
 @riverpod
 class BurgerSearch extends _$BurgerSearch {
   @override
@@ -83,7 +90,7 @@ class Cart extends _$Cart {
 @riverpod
 Future<double> cartTotal(CartTotalRef ref) async {
   final cartItems = await ref.watch(cartProvider.future);
-  return cartItems.fold<double>(0, (sum, item) => sum + item.totalPrice);
+  return cartItems.fold<double>(0.0, (sum, item) => sum + item.totalPrice);
 }
 
 // Cart Item Count Provider
