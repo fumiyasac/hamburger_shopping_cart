@@ -8,12 +8,12 @@ part 'providers.g.dart';
 
 // Repository Providers
 @riverpod
-BurgerRepository burgerRepository(BurgerRepositoryRef ref) {
+BurgerRepository burgerRepository(Ref ref) {
   return BurgerRepository();
 }
 
 @riverpod
-CartRepository cartRepository(CartRepositoryRef ref) {
+CartRepository cartRepository(Ref ref) {
   return CartRepository();
 }
 
@@ -37,7 +37,7 @@ class BurgerList extends _$BurgerList {
 
 // All Ingredients Provider
 @riverpod
-Future<List<String>> allIngredients(AllIngredientsRef ref) async {
+Future<List<String>> allIngredients(Ref ref) async {
   final repository = ref.watch(burgerRepositoryProvider);
   return repository.getAllIngredients();
 }
@@ -88,14 +88,14 @@ class Cart extends _$Cart {
 
 // Cart Total Provider
 @riverpod
-Future<double> cartTotal(CartTotalRef ref) async {
+Future<double> cartTotal(Ref ref) async {
   final cartItems = await ref.watch(cartProvider.future);
   return cartItems.fold<double>(0.0, (sum, item) => sum + item.totalPrice);
 }
 
 // Cart Item Count Provider
 @riverpod
-Future<int> cartItemCount(CartItemCountRef ref) async {
+Future<int> cartItemCount(Ref ref) async {
   final cartItems = await ref.watch(cartProvider.future);
   return cartItems.fold<int>(0, (sum, item) => sum + item.quantity);
 }

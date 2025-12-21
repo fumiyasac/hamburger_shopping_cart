@@ -6,275 +6,376 @@ part of 'providers.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$burgerRepositoryHash() => r'b78024368bcb4bfa6d058cfc97d7f014c1cfe3a3';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [burgerRepository].
 @ProviderFor(burgerRepository)
-final burgerRepositoryProvider = AutoDisposeProvider<BurgerRepository>.internal(
-  burgerRepository,
-  name: r'burgerRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$burgerRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+const burgerRepositoryProvider = BurgerRepositoryProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef BurgerRepositoryRef = AutoDisposeProviderRef<BurgerRepository>;
-String _$cartRepositoryHash() => r'b28615442f9cdf5a3ee149f4a1c2552ef9b49319';
-
-/// See also [cartRepository].
-@ProviderFor(cartRepository)
-final cartRepositoryProvider = AutoDisposeProvider<CartRepository>.internal(
-  cartRepository,
-  name: r'cartRepositoryProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$cartRepositoryHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CartRepositoryRef = AutoDisposeProviderRef<CartRepository>;
-String _$allIngredientsHash() => r'33431ac37112e444a550cab0b79d4f2794bfc327';
-
-/// See also [allIngredients].
-@ProviderFor(allIngredients)
-final allIngredientsProvider = AutoDisposeFutureProvider<List<String>>.internal(
-  allIngredients,
-  name: r'allIngredientsProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$allIngredientsHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef AllIngredientsRef = AutoDisposeFutureProviderRef<List<String>>;
-String _$cartTotalHash() => r'f8519c30bd5039195dce8ed1167a0e93735edbfd';
-
-/// See also [cartTotal].
-@ProviderFor(cartTotal)
-final cartTotalProvider = AutoDisposeFutureProvider<double>.internal(
-  cartTotal,
-  name: r'cartTotalProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$cartTotalHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CartTotalRef = AutoDisposeFutureProviderRef<double>;
-String _$cartItemCountHash() => r'b61a0299ab934bbaaa9ab4669901ce9fd48715ae';
-
-/// See also [cartItemCount].
-@ProviderFor(cartItemCount)
-final cartItemCountProvider = AutoDisposeFutureProvider<int>.internal(
-  cartItemCount,
-  name: r'cartItemCountProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$cartItemCountHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
-
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef CartItemCountRef = AutoDisposeFutureProviderRef<int>;
-String _$burgerListHash() => r'ec4e886892df39533836506fc920f935c80ba292';
-
-/// See also [BurgerList].
-@ProviderFor(BurgerList)
-final burgerListProvider =
-    AutoDisposeAsyncNotifierProvider<BurgerList, List<Burger>>.internal(
-      BurgerList.new,
-      name: r'burgerListProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$burgerListHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
-
-typedef _$BurgerList = AutoDisposeAsyncNotifier<List<Burger>>;
-String _$burgerSearchHash() => r'50bc8b54221a070d4c95a2073de0c4e0d4c09636';
-
-/// Copied from Dart SDK
-class _SystemHash {
-  _SystemHash._();
-
-  static int combine(int hash, int value) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + value);
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x0007ffff & hash) << 10));
-    return hash ^ (hash >> 6);
-  }
-
-  static int finish(int hash) {
-    // ignore: parameter_assignments
-    hash = 0x1fffffff & (hash + ((0x03ffffff & hash) << 3));
-    // ignore: parameter_assignments
-    hash = hash ^ (hash >> 11);
-    return 0x1fffffff & (hash + ((0x00003fff & hash) << 15));
-  }
-}
-
-abstract class _$BurgerSearch
-    extends BuildlessAutoDisposeAsyncNotifier<List<Burger>> {
-  late final String query;
-
-  FutureOr<List<Burger>> build(String query);
-}
-
-/// See also [BurgerSearch].
-@ProviderFor(BurgerSearch)
-const burgerSearchProvider = BurgerSearchFamily();
-
-/// See also [BurgerSearch].
-class BurgerSearchFamily extends Family<AsyncValue<List<Burger>>> {
-  /// See also [BurgerSearch].
-  const BurgerSearchFamily();
-
-  /// See also [BurgerSearch].
-  BurgerSearchProvider call(String query) {
-    return BurgerSearchProvider(query);
-  }
-
-  @override
-  BurgerSearchProvider getProviderOverride(
-    covariant BurgerSearchProvider provider,
-  ) {
-    return call(provider.query);
-  }
-
-  static const Iterable<ProviderOrFamily>? _dependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get dependencies => _dependencies;
-
-  static const Iterable<ProviderOrFamily>? _allTransitiveDependencies = null;
-
-  @override
-  Iterable<ProviderOrFamily>? get allTransitiveDependencies =>
-      _allTransitiveDependencies;
-
-  @override
-  String? get name => r'burgerSearchProvider';
-}
-
-/// See also [BurgerSearch].
-class BurgerSearchProvider
-    extends AutoDisposeAsyncNotifierProviderImpl<BurgerSearch, List<Burger>> {
-  /// See also [BurgerSearch].
-  BurgerSearchProvider(String query)
-    : this._internal(
-        () => BurgerSearch()..query = query,
-        from: burgerSearchProvider,
-        name: r'burgerSearchProvider',
-        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-            ? null
-            : _$burgerSearchHash,
-        dependencies: BurgerSearchFamily._dependencies,
-        allTransitiveDependencies:
-            BurgerSearchFamily._allTransitiveDependencies,
-        query: query,
+final class BurgerRepositoryProvider
+    extends
+        $FunctionalProvider<
+          BurgerRepository,
+          BurgerRepository,
+          BurgerRepository
+        >
+    with $Provider<BurgerRepository> {
+  const BurgerRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'burgerRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
       );
 
-  BurgerSearchProvider._internal(
-    super._createNotifier, {
-    required super.name,
-    required super.dependencies,
-    required super.allTransitiveDependencies,
-    required super.debugGetCreateSourceHash,
-    required super.from,
-    required this.query,
-  }) : super.internal();
+  @override
+  String debugGetCreateSourceHash() => _$burgerRepositoryHash();
 
-  final String query;
+  @$internal
+  @override
+  $ProviderElement<BurgerRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
 
   @override
-  FutureOr<List<Burger>> runNotifierBuild(covariant BurgerSearch notifier) {
-    return notifier.build(query);
+  BurgerRepository create(Ref ref) {
+    return burgerRepository(ref);
   }
 
-  @override
-  Override overrideWith(BurgerSearch Function() create) {
-    return ProviderOverride(
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(BurgerRepository value) {
+    return $ProviderOverride(
       origin: this,
-      override: BurgerSearchProvider._internal(
-        () => create()..query = query,
-        from: from,
-        name: null,
-        dependencies: null,
-        allTransitiveDependencies: null,
-        debugGetCreateSourceHash: null,
-        query: query,
-      ),
+      providerOverride: $SyncValueProvider<BurgerRepository>(value),
     );
   }
+}
+
+String _$burgerRepositoryHash() => r'ed120c40e762267f485e745728136e27a5bf5633';
+
+@ProviderFor(cartRepository)
+const cartRepositoryProvider = CartRepositoryProvider._();
+
+final class CartRepositoryProvider
+    extends $FunctionalProvider<CartRepository, CartRepository, CartRepository>
+    with $Provider<CartRepository> {
+  const CartRepositoryProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'cartRepositoryProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
 
   @override
-  AutoDisposeAsyncNotifierProviderElement<BurgerSearch, List<Burger>>
-  createElement() {
-    return _BurgerSearchProviderElement(this);
+  String debugGetCreateSourceHash() => _$cartRepositoryHash();
+
+  @$internal
+  @override
+  $ProviderElement<CartRepository> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  CartRepository create(Ref ref) {
+    return cartRepository(ref);
   }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(CartRepository value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<CartRepository>(value),
+    );
+  }
+}
+
+String _$cartRepositoryHash() => r'a9887af5870ecc78e9ca65e5564de89c46d2b43c';
+
+@ProviderFor(BurgerList)
+const burgerListProvider = BurgerListProvider._();
+
+final class BurgerListProvider
+    extends $AsyncNotifierProvider<BurgerList, List<Burger>> {
+  const BurgerListProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'burgerListProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$burgerListHash();
+
+  @$internal
+  @override
+  BurgerList create() => BurgerList();
+}
+
+String _$burgerListHash() => r'ec4e886892df39533836506fc920f935c80ba292';
+
+abstract class _$BurgerList extends $AsyncNotifier<List<Burger>> {
+  FutureOr<List<Burger>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<Burger>>, List<Burger>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<Burger>>, List<Burger>>,
+              AsyncValue<List<Burger>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
+@ProviderFor(allIngredients)
+const allIngredientsProvider = AllIngredientsProvider._();
+
+final class AllIngredientsProvider
+    extends
+        $FunctionalProvider<
+          AsyncValue<List<String>>,
+          List<String>,
+          FutureOr<List<String>>
+        >
+    with $FutureModifier<List<String>>, $FutureProvider<List<String>> {
+  const AllIngredientsProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'allIngredientsProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$allIngredientsHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<List<String>> $createElement(
+    $ProviderPointer pointer,
+  ) => $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<List<String>> create(Ref ref) {
+    return allIngredients(ref);
+  }
+}
+
+String _$allIngredientsHash() => r'78863a7fed94653d85fac35484fb0efebc5db692';
+
+@ProviderFor(BurgerSearch)
+const burgerSearchProvider = BurgerSearchFamily._();
+
+final class BurgerSearchProvider
+    extends $AsyncNotifierProvider<BurgerSearch, List<Burger>> {
+  const BurgerSearchProvider._({
+    required BurgerSearchFamily super.from,
+    required String super.argument,
+  }) : super(
+         retry: null,
+         name: r'burgerSearchProvider',
+         isAutoDispose: true,
+         dependencies: null,
+         $allTransitiveDependencies: null,
+       );
+
+  @override
+  String debugGetCreateSourceHash() => _$burgerSearchHash();
+
+  @override
+  String toString() {
+    return r'burgerSearchProvider'
+        ''
+        '($argument)';
+  }
+
+  @$internal
+  @override
+  BurgerSearch create() => BurgerSearch();
 
   @override
   bool operator ==(Object other) {
-    return other is BurgerSearchProvider && other.query == query;
+    return other is BurgerSearchProvider && other.argument == argument;
   }
 
   @override
   int get hashCode {
-    var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, query.hashCode);
-
-    return _SystemHash.finish(hash);
+    return argument.hashCode;
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-mixin BurgerSearchRef on AutoDisposeAsyncNotifierProviderRef<List<Burger>> {
-  /// The parameter `query` of this provider.
-  String get query;
-}
+String _$burgerSearchHash() => r'50bc8b54221a070d4c95a2073de0c4e0d4c09636';
 
-class _BurgerSearchProviderElement
-    extends AutoDisposeAsyncNotifierProviderElement<BurgerSearch, List<Burger>>
-    with BurgerSearchRef {
-  _BurgerSearchProviderElement(super.provider);
+final class BurgerSearchFamily extends $Family
+    with
+        $ClassFamilyOverride<
+          BurgerSearch,
+          AsyncValue<List<Burger>>,
+          List<Burger>,
+          FutureOr<List<Burger>>,
+          String
+        > {
+  const BurgerSearchFamily._()
+    : super(
+        retry: null,
+        name: r'burgerSearchProvider',
+        dependencies: null,
+        $allTransitiveDependencies: null,
+        isAutoDispose: true,
+      );
+
+  BurgerSearchProvider call(String query) =>
+      BurgerSearchProvider._(argument: query, from: this);
 
   @override
-  String get query => (origin as BurgerSearchProvider).query;
+  String toString() => r'burgerSearchProvider';
+}
+
+abstract class _$BurgerSearch extends $AsyncNotifier<List<Burger>> {
+  late final _$args = ref.$arg as String;
+  String get query => _$args;
+
+  FutureOr<List<Burger>> build(String query);
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build(_$args);
+    final ref = this.ref as $Ref<AsyncValue<List<Burger>>, List<Burger>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<Burger>>, List<Burger>>,
+              AsyncValue<List<Burger>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
+
+@ProviderFor(Cart)
+const cartProvider = CartProvider._();
+
+final class CartProvider extends $AsyncNotifierProvider<Cart, List<CartItem>> {
+  const CartProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'cartProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$cartHash();
+
+  @$internal
+  @override
+  Cart create() => Cart();
 }
 
 String _$cartHash() => r'93aab2b812cf03aea750732f8dac69773d64c29d';
 
-/// See also [Cart].
-@ProviderFor(Cart)
-final cartProvider =
-    AutoDisposeAsyncNotifierProvider<Cart, List<CartItem>>.internal(
-      Cart.new,
-      name: r'cartProvider',
-      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$cartHash,
-      dependencies: null,
-      allTransitiveDependencies: null,
-    );
+abstract class _$Cart extends $AsyncNotifier<List<CartItem>> {
+  FutureOr<List<CartItem>> build();
+  @$mustCallSuper
+  @override
+  void runBuild() {
+    final created = build();
+    final ref = this.ref as $Ref<AsyncValue<List<CartItem>>, List<CartItem>>;
+    final element =
+        ref.element
+            as $ClassProviderElement<
+              AnyNotifier<AsyncValue<List<CartItem>>, List<CartItem>>,
+              AsyncValue<List<CartItem>>,
+              Object?,
+              Object?
+            >;
+    element.handleValue(ref, created);
+  }
+}
 
-typedef _$Cart = AutoDisposeAsyncNotifier<List<CartItem>>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+@ProviderFor(cartTotal)
+const cartTotalProvider = CartTotalProvider._();
+
+final class CartTotalProvider
+    extends $FunctionalProvider<AsyncValue<double>, double, FutureOr<double>>
+    with $FutureModifier<double>, $FutureProvider<double> {
+  const CartTotalProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'cartTotalProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$cartTotalHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<double> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<double> create(Ref ref) {
+    return cartTotal(ref);
+  }
+}
+
+String _$cartTotalHash() => r'f962e646d01cceadf08d6aec354f1c5839120ed4';
+
+@ProviderFor(cartItemCount)
+const cartItemCountProvider = CartItemCountProvider._();
+
+final class CartItemCountProvider
+    extends $FunctionalProvider<AsyncValue<int>, int, FutureOr<int>>
+    with $FutureModifier<int>, $FutureProvider<int> {
+  const CartItemCountProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'cartItemCountProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$cartItemCountHash();
+
+  @$internal
+  @override
+  $FutureProviderElement<int> $createElement($ProviderPointer pointer) =>
+      $FutureProviderElement(pointer);
+
+  @override
+  FutureOr<int> create(Ref ref) {
+    return cartItemCount(ref);
+  }
+}
+
+String _$cartItemCountHash() => r'ad9c01d455e7a40c4c13f476b6c38c6ea839d9c3';
