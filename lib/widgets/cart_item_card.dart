@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import '../models/cart_item.dart';
 
+// カートアイテムカード: カート内のアイテムを表示する再利用可能なウィジェット
+// 数量の増減、削除などの機能を持つ
 class CartItemCard extends StatelessWidget {
-  final CartItem item;
-  final VoidCallback onIncrease;
-  final VoidCallback onDecrease;
-  final VoidCallback onRemove;
+  final CartItem item;              // 表示するカートアイテム
+  final VoidCallback onIncrease;    // 数量を増やすボタンのコールバック
+  final VoidCallback onDecrease;    // 数量を減らすボタンのコールバック
+  final VoidCallback onRemove;      // 削除ボタンのコールバック
 
+  // コンストラクタ: すべてのパラメータが必須
   const CartItemCard({
     super.key,
     required this.item,
@@ -95,10 +98,10 @@ class CartItemCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  // 数量調整と小計
+                  // 数量調整ボタンと小計を横並びに配置
                   Row(
                     children: [
-                      // 数量調整ボタン
+                      // 数量調整ボタン（-、数量、+ のボタンを横並び）
                       Container(
                         decoration: BoxDecoration(
                           color: Colors.grey.shade100,
@@ -111,10 +114,11 @@ class CartItemCard extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            // Material + InkWell: タップ時の波紋エフェクトを表示
                             Material(
                               color: Colors.transparent,
                               child: InkWell(
-                                onTap: onDecrease,
+                                onTap: onDecrease,  // 数量を減らす
                                 borderRadius: const BorderRadius.only(
                                   topLeft: Radius.circular(8),
                                   bottomLeft: Radius.circular(8),

@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
+// cached_network_image: ネットワーク画像をキャッシュして表示するパッケージ
 import 'package:cached_network_image/cached_network_image.dart';
 import '../models/burger.dart';
 
+// バーガーカード: バーガーの情報を表示する再利用可能なウィジェット
+// グリッド表示やリスト表示で使用される
 class BurgerCard extends StatelessWidget {
-  final Burger burger;
-  final VoidCallback? onTap;
-  final VoidCallback? onAddToCart;
+  final Burger burger;              // 表示するバーガーの情報
+  final VoidCallback? onTap;        // カードがタップされた時のコールバック
+  final VoidCallback? onAddToCart;  // カートボタンがタップされた時のコールバック
 
+  // コンストラクタ
   const BurgerCard({
     super.key,
     required this.burger,
-    this.onTap,
-    this.onAddToCart,
+    this.onTap,         // オプション（null 許容）
+    this.onAddToCart,   // オプション（null 許容）
   });
 
   @override
@@ -47,11 +51,14 @@ class BurgerCard extends StatelessWidget {
                     borderRadius: const BorderRadius.vertical(
                       top: Radius.circular(12),
                     ),
+                    // CachedNetworkImage: ネットワーク画像を効率的に表示
+                    // 一度読み込んだ画像をキャッシュし、次回は高速に表示できる
                     child: CachedNetworkImage(
-                      imageUrl: burger.imageUrl,
-                      height: 110,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                      imageUrl: burger.imageUrl,      // 画像の URL
+                      height: 110,                    // 高さ
+                      width: double.infinity,         // 幅（親の幅いっぱい）
+                      fit: BoxFit.cover,              // 画像のフィット方法（領域を埋める）
+                      // placeholder: 画像読み込み中に表示するウィジェット
                       placeholder: (context, url) => Container(
                         height: 110,
                         color: Colors.grey.shade100,

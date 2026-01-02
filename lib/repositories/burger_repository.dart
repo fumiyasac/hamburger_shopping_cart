@@ -1,7 +1,12 @@
+// Burger モデルクラスをインポート
 import '../models/burger.dart';
 
+// バーガーのデータを管理するリポジトリクラス
+// リポジトリパターン: データの取得・保存などのロジックをまとめたクラス
+// 将来的にデータソース（API、データベースなど）を変更する際も、このクラスだけを修正すれば良い
 class BurgerRepository {
-  // モックデータ
+  // モックデータ（実際のアプリでは API やデータベースからデータを取得する）
+  // _（アンダースコア）で始まる変数: クラス内でのみアクセス可能（プライベート）
   final List<Burger> _mockBurgers = [
     Burger(
       id: '1',
@@ -255,20 +260,33 @@ class BurgerRepository {
     ),
   ];
 
+  // すべてのバーガーを取得するメソッド
+  // Future<T>: 非同期処理の結果を表す型。処理が完了したら T 型の値が得られる
+  // async: 非同期関数であることを示すキーワード
   Future<List<Burger>> getAllBurgers() async {
+    // Future.delayed: 指定した時間だけ処理を遅延させる
+    // ネットワーク通信のシミュレーション（実際の API 呼び出しには時間がかかるため）
     await Future.delayed(const Duration(milliseconds: 500));
     return _mockBurgers;
   }
 
+  // ID を指定してバーガーを1つ取得するメソッド
+  // 戻り値の型が Future<Burger?> : 見つからない場合は null を返す
   Future<Burger?> getBurgerById(String id) async {
     await Future.delayed(const Duration(milliseconds: 200));
     try {
+      // firstWhere: リストから条件に一致する最初の要素を取得
+      // (burger) => burger.id == id は無名関数（ラムダ式）
       return _mockBurgers.firstWhere((burger) => burger.id == id);
     } catch (e) {
+      // 見つからない場合は例外が発生するので、null を返す
       return null;
     }
   }
 
+  // バーガーを検索するメソッド
+  // query: 検索キーワード
+  // selectedIngredients: 選択された食材のリスト（デフォルトは空リスト）
   Future<List<Burger>> searchBurgers(String query,
       {List<String> selectedIngredients = const []}) async {
     await Future.delayed(const Duration(milliseconds: 300));
@@ -276,18 +294,23 @@ class BurgerRepository {
     // すべてのバーガーから開始
     var results = _mockBurgers;
 
-    // 食材フィルター
+    // 食材フィルター: 選択された食材がすべて含まれるバーガーだけに絞り込む
     if (selectedIngredients.isNotEmpty) {
+      // where: 条件に一致する要素だけを抽出
       results = results.where((burger) {
+        // every: すべての要素が条件を満たすか確認
         return selectedIngredients.every((ingredient) =>
+            // any: いずれかの要素が条件を満たすか確認
             burger.ingredients.any((burgerIngredient) =>
+                // toLowerCase で大文字小文字を無視して検索
                 burgerIngredient.toLowerCase().contains(ingredient.toLowerCase())));
       }).toList();
     }
 
-    // フリーワード検索
+    // フリーワード検索: 名前、説明、食材のいずれかにキーワードが含まれるバーガーを抽出
     if (query.isNotEmpty) {
       results = results.where((burger) {
+        // || は論理和（OR）演算子: いずれかが true なら全体も true
         return burger.name.toLowerCase().contains(query.toLowerCase()) ||
             burger.description.toLowerCase().contains(query.toLowerCase()) ||
             burger.ingredients.any(
@@ -300,13 +323,19 @@ class BurgerRepository {
     return results;
   }
 
-  // すべてのユニークな食材を取得
+  // すべてのユニークな食材を取得するメソッド
+  // 食材フィルター用のリストを作成する
   Future<List<String>> getAllIngredients() async {
     await Future.delayed(const Duration(milliseconds: 100));
+    // Set: 重複を許さないコレクション（同じ値は1つしか保持されない）
     final Set<String> allIngredients = {};
+    // for-in ループ: リストの各要素に対して処理を実行
     for (var burger in _mockBurgers) {
+      // addAll: コレクションのすべての要素を追加
       allIngredients.addAll(burger.ingredients);
     }
+    // toList() で Set を List に変換
+    // ..sort() はカスケード記法: オブジェクトに対してメソッドを呼び出してからそのオブジェクトを返す
     return allIngredients.toList()..sort();
   }
 }
